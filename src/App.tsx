@@ -92,25 +92,36 @@ const PORTFOLIO_FILES = [
     category: "Career",
     icon: FileText,
     filename: "Jeffrey_Adriel_CV.txt",
-    content: `JEFFREY ADRIEL OLEABHIE
-Lagos, Nigeria | jeffadr46@gmail.com | +234 7078480013
-GitHub: github.com/adriellovesball | LinkedIn: linkedin.com/in/jeffrey-oleabhie-b1529a405
+    content: `Jeffrey Adriel Oleabhie
+Phone: +234 7078480013 | Email: jeffadr46@gmail.com
+
+PROFILE SUMMARY
+I am a motivated and detail-oriented computer science student with a 
+strong foundation in computer literacy, programming basics, and office 
+applications. I hold a WAEC O’Level certification and currently on a first 
+class in pursuing a Bachelor of Science (BSc.) degree in Computer Science at
+Covenant University, to graduate in October 2028. I am passionate about 
+learning, problem-solving, and applying technology to real-world 
+challenges.
 
 EDUCATION
-- BSc. Computer Science | Covenant University, Nigeria (2024 — Present)
-- WAEC O'Level | Deeper Life High School, Benin City (Graduated 2024)
+Covenant University, Ota, Ogun State, Nigeria – BSc. Computer Science (In Progress)
+Deeper Life High School, Benin, Edo State, Nigeria – WAEC O’Level Completed
 
-TECHNICAL SKILLS & TOOLS
-- Web Stack: React.js, Next.js, HTML5, CSS3, Tailwind CSS, TypeScript, JavaScript
-- Frameworks & Libraries: Vite, Shadcn UI, Motion, Class Variance Authority
-- Core Computer Science: Algorithms, Data Structures, Web Architectures, Problem Solving
-- Office Productivity: Microsoft Word, Excel, PowerPoint, Technical Research
+SKILLS
+• Microsoft Office Suite (Word, Excel, PowerPoint)
+• Basic programming knowledge (Python, HTML, CSS, JavaScript, React.js, Next.js, C, C++, Java)
+• Internet research and online communication
+• Typing speed and data entry
+• Analytical thinking and problem-solving
 
-PROJECTS
-- Web Music Player: Responsive and interactive player leveraging web audio controls.
-- REST APIs Weather Hub: Location-aware weather dashboard utilizing REST API caching structures.
-- TaskForge Dashboard: Academic workspace and study streak manager with full reactive local state.
-`
+EXPERIENCE
+Entry-Level Candidate / Internship Seeker. Experience gained through 
+academic work, personal projects, and practical use of computer 
+applications.
+
+REFERENCES
+Available on request.`
   },
   {
     id: "mission",
@@ -120,17 +131,44 @@ PROJECTS
     category: "Academic",
     icon: BookOpen,
     filename: "Academic_Mission_Statement.txt",
-    content: `ACADEMIC & PROFESSIONAL MISSION STATEMENT
+    content: `Mission Statement
 Jeffrey Adriel Oleabhie
+B.Sc. Computer Science
+Covenant University
 
-My mission is to build robust, highly interactive, and visually stunning digital experiences by bridging the gap between rigorous computer science theories and practical, human-centered UI design.
+My mission is to use technology to solve meaningful real-world problems by building accessible, reliable, and user-centered software. As a Computer Science student at Covenant University, I am committed to continuously improving my skills in software engineering and front-end development while embracing lifelong learning, creativity, and collaboration.
 
-Key Objectives:
-1. Academic Mastery: Achieve deep understanding of data structures, algorithms, and computing systems at Covenant University.
-2. Front-End Excellence: Craft clean, responsive, and performance-optimized web architectures using modern stacks (React, TypeScript, Tailwind).
-3. Innovation & Research: Keep exploring new software systems, AI integrations, and developer tooling to stay at the cutting edge of tech.
-4. Professional Value: Bring critical thinking, energy, and strong computer literacy to real-world development teams and collaborative workspaces.
-`
+I aspire to create digital products that improve education, productivity, and everyday life, particularly within underserved communities. I believe technology has the power to bridge gaps, create opportunities, and empower individuals, and I want my work to contribute to that positive impact.
+
+Beyond technical excellence, I strive to lead with integrity, curiosity, and a commitment to helping others grow. I aim to contribute to teams that value innovation and purpose while mentoring aspiring developers and giving back to the technology community through knowledge sharing and impactful projects.
+
+Receiving scholarship support would allow me to dedicate more time to my education, strengthen my technical expertise, and pursue ambitious projects that prepare me for a career of meaningful contribution. My long-term goal is to become a software engineer who develops solutions that create lasting value for people and organizations while inspiring others to pursue excellence in technology.`
+  },
+  {
+    id: "cover_letter",
+    title: "Application Cover Letter",
+    subtitle: "Frontend Position Application",
+    description: "Personalized application statement detail on track for first-class honors, highlighting my technical baseline.",
+    category: "Career",
+    icon: FileText,
+    filename: "Jeffrey_Adriel_Cover_Letter.txt",
+    content: `Jeffrey Adriel Oleabhie
++234 7078480013 | jeffadr46@gmail.com
+
+July 27, 2026
+
+Dear Hiring Manager,
+
+I am writing to apply for the Frontend Engineer position. As a Computer Science student at Covenant University, currently on track for first-class honors and graduating in October 2028, I have built a solid foundation in programming and web technologies that I am eager to apply in a professional, hands-on engineering role.
+
+Through my coursework and personal projects, I have developed practical skills in HTML, CSS, and JavaScript, including working with React and Next.js to build component-based interfaces, Tailwind CSS for styling, and integrating APIs to connect frontend applications with data and services. I also have working knowledge of Python, Java, C, and C++. I am comfortable using the Microsoft Office Suite for documentation and collaboration, and I bring strong typing and data-entry speed, careful attention to detail, and an analytical, problem-solving mindset to every task I take on. I am especially drawn to frontend engineering because I enjoy turning ideas into clean, functional interfaces and continually sharpening my craft as web technologies evolve.
+
+While I am early in my career, I am a fast learner who takes initiative: I have used personal projects and independent study to build and reinforce my technical skills beyond the classroom. I would welcome the opportunity to bring that same drive, curiosity, and reliability to your team, and to grow as a frontend engineer under experienced mentorship.
+
+Thank you for considering my application. I would welcome the opportunity to discuss how my background and enthusiasm for frontend development could contribute to your team. I am available at your convenience for an interview and can be reached at jeffadr46@gmail.com or +234 7078480013.
+
+Sincerely,
+Jeffrey Adriel Oleabhie`
   },
   {
     id: "certifications",
@@ -175,24 +213,6 @@ Selected Showcase Breakdown:
 3. TaskForge Dashboard
    - Stack: React.js, Javascript, Local Storage
    - Description: Local planning dashboard for university students with focus streak trackers, board task trackers, and academic note drafting utilities.
-`
-  },
-  {
-    id: "recommendations",
-    title: "Letters of Recommendation",
-    subtitle: "References & Endorsements",
-    description: "Endorsements and recommendations detailing my analytical approach, teamwork skills, and computer literacy.",
-    category: "Endorsements",
-    icon: Star,
-    filename: "Letters_of_Recommendation.txt",
-    content: `LETTERS OF RECOMMENDATION & REFERENCES
-Jeffrey Adriel Oleabhie
-
-1. Covenant University Academic Endorsement (Reference Profile)
-   "Jeffrey is a highly motivated Computer Science student who displays excellent analytical capability, quick learning capacity, and strong attention to detail. His programming skills combined with his work ethic make him a superb candidate for engineering internships."
-
-2. DLHS Benin City Character Reference
-   "Highly disciplined, focused, and demonstrates outstanding aptitude in digital skills, technical research, and peer collaboration."
 `
   }
 ];
