@@ -6,6 +6,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import avatarImg from "./assets/images/jeffrey_avatar_new.jpg";
+import { jsPDF } from "jspdf";
 import {
   Github,
   Linkedin,
@@ -91,7 +92,7 @@ const PORTFOLIO_FILES = [
     description: "Detailed overview of my education at Covenant University, technical stack, projects, and coursework history.",
     category: "Career",
     icon: FileText,
-    filename: "Jeffrey_Adriel_CV.txt",
+    filename: "Jeffrey_Adriel_CV.pdf",
     content: `Jeffrey Adriel Oleabhie
 Phone: +234 7078480013 | Email: jeffadr46@gmail.com
 
@@ -130,7 +131,7 @@ Available on request.`
     description: "My personal and academic manifesto detailing my dedication to software crafts and front-end excellence.",
     category: "Academic",
     icon: BookOpen,
-    filename: "Academic_Mission_Statement.txt",
+    filename: "Academic_Mission_Statement.pdf",
     content: `Mission Statement
 Jeffrey Adriel Oleabhie
 B.Sc. Computer Science
@@ -151,7 +152,7 @@ Receiving scholarship support would allow me to dedicate more time to my educati
     description: "Personalized application statement detail on track for first-class honors, highlighting my technical baseline.",
     category: "Career",
     icon: FileText,
-    filename: "Jeffrey_Adriel_Cover_Letter.txt",
+    filename: "Jeffrey_Adriel_Cover_Letter.pdf",
     content: `Jeffrey Adriel Oleabhie
 +234 7078480013 | jeffadr46@gmail.com
 
@@ -177,7 +178,7 @@ Jeffrey Adriel Oleabhie`
     description: "Official West African Senior School Certificate (WAEC) records, achievements, and transcripts.",
     category: "Records",
     icon: Award,
-    filename: "WAEC_O_Levels_Certificate.txt",
+    filename: "WAEC_O_Levels_Certificate.pdf",
     content: `OFFICIAL ACADEMIC SUMMARY
 Jeffrey Adriel Oleabhie
 
@@ -197,7 +198,7 @@ Jeffrey Adriel Oleabhie
     description: "A compiled text representation of my projects, architecture decisions, and selected code layouts.",
     category: "Showcase",
     icon: Layers,
-    filename: "Jeffrey_Adriel_Portfolio_Deck.txt",
+    filename: "Jeffrey_Adriel_Portfolio_Deck.pdf",
     content: `JEFFREY ADRIEL OLEABHIE - PORTFOLIO PRESENTATION
 
 Selected Showcase Breakdown:
@@ -295,13 +296,26 @@ export default function App() {
   };
 
   const downloadFile = (fileItem: typeof PORTFOLIO_FILES[0]) => {
-    const element = document.createElement("a");
-    const file = new Blob([fileItem.content], { type: "text/plain;charset=utf-8" });
-    element.href = URL.createObjectURL(file);
-    element.download = fileItem.filename;
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);
+    const doc = new jsPDF();
+    doc.setFont("Helvetica", "normal");
+    doc.setFontSize(10);
+    
+    // Split the text content into lines that fit the page width
+    const splitText = doc.splitTextToSize(fileItem.content, 180);
+    
+    let y = 15;
+    const pageHeight = doc.internal.pageSize.height;
+    
+    splitText.forEach((line: string) => {
+      if (y > pageHeight - 15) {
+        doc.addPage();
+        y = 15;
+      }
+      doc.text(line, 15, y);
+      y += 6;
+    });
+    
+    doc.save(fileItem.filename);
   };
 
   return (
