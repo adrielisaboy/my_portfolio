@@ -45,7 +45,10 @@ import {
   Table,
   Presentation,
   Search,
-  Keyboard
+  Keyboard,
+  BookOpen,
+  Download,
+  Eye
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -80,6 +83,120 @@ const PROJECTS = [
   }
 ];
 
+const PORTFOLIO_FILES = [
+  {
+    id: "cv",
+    title: "Curriculum Vitae",
+    subtitle: "Professional Resume",
+    description: "Detailed overview of my education at Covenant University, technical stack, projects, and coursework history.",
+    category: "Career",
+    icon: FileText,
+    filename: "Jeffrey_Adriel_CV.txt",
+    content: `JEFFREY ADRIEL OLEABHIE
+Lagos, Nigeria | jeffadr46@gmail.com | +234 7078480013
+GitHub: github.com/adriellovesball | LinkedIn: linkedin.com/in/jeffrey-oleabhie-b1529a405
+
+EDUCATION
+- BSc. Computer Science | Covenant University, Nigeria (2024 — Present)
+- WAEC O'Level | Deeper Life High School, Benin City (Graduated 2024)
+
+TECHNICAL SKILLS & TOOLS
+- Web Stack: React.js, Next.js, HTML5, CSS3, Tailwind CSS, TypeScript, JavaScript
+- Frameworks & Libraries: Vite, Shadcn UI, Motion, Class Variance Authority
+- Core Computer Science: Algorithms, Data Structures, Web Architectures, Problem Solving
+- Office Productivity: Microsoft Word, Excel, PowerPoint, Technical Research
+
+PROJECTS
+- Web Music Player: Responsive and interactive player leveraging web audio controls.
+- REST APIs Weather Hub: Location-aware weather dashboard utilizing REST API caching structures.
+- TaskForge Dashboard: Academic workspace and study streak manager with full reactive local state.
+`
+  },
+  {
+    id: "mission",
+    title: "Academic Mission Statement",
+    subtitle: "Core Objectives",
+    description: "My personal and academic manifesto detailing my dedication to software crafts and front-end excellence.",
+    category: "Academic",
+    icon: BookOpen,
+    filename: "Academic_Mission_Statement.txt",
+    content: `ACADEMIC & PROFESSIONAL MISSION STATEMENT
+Jeffrey Adriel Oleabhie
+
+My mission is to build robust, highly interactive, and visually stunning digital experiences by bridging the gap between rigorous computer science theories and practical, human-centered UI design.
+
+Key Objectives:
+1. Academic Mastery: Achieve deep understanding of data structures, algorithms, and computing systems at Covenant University.
+2. Front-End Excellence: Craft clean, responsive, and performance-optimized web architectures using modern stacks (React, TypeScript, Tailwind).
+3. Innovation & Research: Keep exploring new software systems, AI integrations, and developer tooling to stay at the cutting edge of tech.
+4. Professional Value: Bring critical thinking, energy, and strong computer literacy to real-world development teams and collaborative workspaces.
+`
+  },
+  {
+    id: "certifications",
+    title: "WAEC & Key Certifications",
+    subtitle: "Academic Records",
+    description: "Official West African Senior School Certificate (WAEC) records, achievements, and transcripts.",
+    category: "Records",
+    icon: Award,
+    filename: "WAEC_O_Levels_Certificate.txt",
+    content: `OFFICIAL ACADEMIC SUMMARY
+Jeffrey Adriel Oleabhie
+
+1. WAEC O'Level Certification (Graduated 2024)
+   School: Deeper Life High School, Benin City, Edo State
+   Status: Completed and Certified
+
+2. Covenant University (2024 - Present)
+   Major: BSc. Computer Science
+   Active Status: In Good Standing, studying advanced algorithms, web applications, and database management systems.
+`
+  },
+  {
+    id: "portfolio_doc",
+    title: "Portfolio Presentation",
+    subtitle: "Showcase Deck",
+    description: "A compiled text representation of my projects, architecture decisions, and selected code layouts.",
+    category: "Showcase",
+    icon: Layers,
+    filename: "Jeffrey_Adriel_Portfolio_Deck.txt",
+    content: `JEFFREY ADRIEL OLEABHIE - PORTFOLIO PRESENTATION
+
+Selected Showcase Breakdown:
+
+1. Web Music Player
+   - Stack: React.js, Web Audio API, Tailwind CSS
+   - Description: Interactive music player with high-fidelity control layouts, responsive design, playlist management, and local caching.
+
+2. REST APIs Weather Hub
+   - Stack: Next.js, Weather APIs, Tailwind CSS
+   - Description: Geolocation weather query engine with graph interfaces showing hourly weather forecasts, incorporating client-side request deduplication.
+
+3. TaskForge Dashboard
+   - Stack: React.js, Javascript, Local Storage
+   - Description: Local planning dashboard for university students with focus streak trackers, board task trackers, and academic note drafting utilities.
+`
+  },
+  {
+    id: "recommendations",
+    title: "Letters of Recommendation",
+    subtitle: "References & Endorsements",
+    description: "Endorsements and recommendations detailing my analytical approach, teamwork skills, and computer literacy.",
+    category: "Endorsements",
+    icon: Star,
+    filename: "Letters_of_Recommendation.txt",
+    content: `LETTERS OF RECOMMENDATION & REFERENCES
+Jeffrey Adriel Oleabhie
+
+1. Covenant University Academic Endorsement (Reference Profile)
+   "Jeffrey is a highly motivated Computer Science student who displays excellent analytical capability, quick learning capacity, and strong attention to detail. His programming skills combined with his work ethic make him a superb candidate for engineering internships."
+
+2. DLHS Benin City Character Reference
+   "Highly disciplined, focused, and demonstrates outstanding aptitude in digital skills, technical research, and peer collaboration."
+`
+  }
+];
+
 const SKILLS_CATEGORIES = {
   stack: [
     { name: "React.js", color: "text-[#00D8FF] bg-[#122A3A]", icon: Atom },
@@ -110,6 +227,7 @@ export default function App() {
   const [time, setTime] = useState("");
   const [activeSkillTab, setActiveSkillTab] = useState<"stack" | "theories" | "productivity">("stack");
   const [selectedProject, setSelectedProject] = useState<typeof PROJECTS[0] | null>(null);
+  const [selectedFile, setSelectedFile] = useState<typeof PORTFOLIO_FILES[0] | null>(null);
   const [contactOpen, setContactOpen] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
 
@@ -156,6 +274,16 @@ export default function App() {
     }, 1200);
   };
 
+  const downloadFile = (fileItem: typeof PORTFOLIO_FILES[0]) => {
+    const element = document.createElement("a");
+    const file = new Blob([fileItem.content], { type: "text/plain;charset=utf-8" });
+    element.href = URL.createObjectURL(file);
+    element.download = fileItem.filename;
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+  };
+
   return (
     <div id="bento-root" className="min-h-screen bg-[#070708] text-[#F3F4F6] p-4 sm:p-6 md:p-12 lg:p-16 flex flex-col justify-center items-center">
       <div className="max-w-[1000px] w-full space-y-6">
@@ -182,63 +310,74 @@ export default function App() {
         {/* TOP ROW: Profile picture and intro summary */}
         <div id="bento-hero-row" className="grid grid-cols-1 md:grid-cols-12 gap-6">
 
-          {/* Avatar Card (Left) */}
+          {/* Hero Image Card (Left) */}
           <motion.div
-            whileHover={{ y: -4, scale: 1.01 }}
+            whileHover={{ y: -4 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="md:col-span-4 bg-[#121214] border border-[#1e1e22] rounded-[2rem] p-6 flex flex-col items-center justify-center text-center group relative overflow-hidden"
+            className="md:col-span-6 bg-[#121214] border border-[#1e1e22] rounded-[2rem] relative overflow-hidden group min-h-[320px] flex items-center"
           >
-            <div className="absolute top-4 right-4 bg-[#1e1e22] border border-[#2b2b31] text-[10px] uppercase font-mono tracking-wider font-bold px-3 py-1 rounded-full text-stone-400">
-              Web Dev
-            </div>
-            <div className="w-40 h-40 rounded-[2.5rem] overflow-hidden border-2 border-[#1e1e22] mb-5 bg-[#1c1c1f] relative group-hover:border-[#39FF14] transition-colors duration-300">
+            {/* Background image on the right */}
+            <div className="absolute right-0 top-0 bottom-0 w-3/4 sm:w-[85%] z-0">
               <img
                 src={avatarImg}
                 alt="Jeffrey Adriel"
-                className="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 object-center"
                 referrerPolicy="no-referrer"
               />
+              {/* Gradients to blend the image into the card's dark background on the left */}
+              <div className="absolute inset-0 bg-gradient-to-r from-[#121214] via-[#121214]/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#121214] via-transparent to-transparent opacity-60" />
             </div>
-            <h1 className="text-2xl font-bold font-display tracking-tight text-white mb-1">
-              Jeffrey Adriel Oleabhie
-            </h1>
-            <p className="text-[#39FF14] font-mono text-xs uppercase tracking-wider font-semibold">
-              Front-End Engineer
-            </p>
-            <div className="flex gap-2.5 mt-5">
-              <a
-                href="https://github.com/adriellovesball"
-                target="_blank"
-                rel="noreferrer"
-                className="w-9 h-9 flex items-center justify-center rounded-full bg-[#1c1c1f] hover:bg-white hover:text-black border border-[#28282d] transition-all"
-                title="GitHub"
-              >
-                <Github className="w-4.5 h-4.5" />
-              </a>
-              <a
-                href="https://linkedin.com/in/jeffrey-oleabhie-b1529a405"
-                target="_blank"
-                rel="noreferrer"
-                className="w-9 h-9 flex items-center justify-center rounded-full bg-[#1c1c1f] hover:bg-white hover:text-black border border-[#28282d] transition-all"
-                title="LinkedIn"
-              >
-                <Linkedin className="w-4.5 h-4.5" />
-              </a>
-              <button
-                onClick={() => setContactOpen(true)}
-                className="w-9 h-9 flex items-center justify-center rounded-full bg-[#1c1c1f] hover:bg-[#39FF14] hover:text-black hover:border-transparent border border-[#28282d] transition-all cursor-pointer"
-                title="Contact Mail"
-              >
-                <Mail className="w-4.5 h-4.5" />
-              </button>
+
+            <div className="relative z-10 p-8 w-full h-full flex flex-col justify-center">
+              <div className="absolute top-6 right-6 bg-[#1e1e22]/80 backdrop-blur border border-[#2b2b31] text-[10px] uppercase font-mono tracking-wider font-bold px-3 py-1 rounded-full text-stone-300">
+                Web Dev
+              </div>
+
+              <div className="mt-auto pt-16">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-display tracking-tighter text-white mb-2 leading-none">
+                  Engineer
+                </h1>
+                <p className="text-[#39FF14] font-mono text-xs sm:text-sm uppercase tracking-widest font-semibold mb-6">
+                  Front-End UI
+                </p>
+
+                <div className="flex gap-2.5">
+                  <a
+                    href="https://github.com/adriellovesball"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="w-10 h-10 flex items-center justify-center rounded-full bg-[#1c1c1f]/90 backdrop-blur hover:bg-white hover:text-black border border-[#28282d] transition-all"
+                    title="GitHub"
+                  >
+                    <Github className="w-4.5 h-4.5" />
+                  </a>
+                  <a
+                    href="https://linkedin.com/in/jeffrey-oleabhie-b1529a405"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="w-10 h-10 flex items-center justify-center rounded-full bg-[#1c1c1f]/90 backdrop-blur hover:bg-white hover:text-black border border-[#28282d] transition-all"
+                    title="LinkedIn"
+                  >
+                    <Linkedin className="w-4.5 h-4.5" />
+                  </a>
+                  <button
+                    onClick={() => setContactOpen(true)}
+                    className="w-10 h-10 flex items-center justify-center rounded-full bg-[#1c1c1f]/90 backdrop-blur hover:bg-[#39FF14] hover:text-black hover:border-transparent border border-[#28282d] transition-all cursor-pointer"
+                    title="Contact Mail"
+                  >
+                    <Mail className="w-4.5 h-4.5" />
+                  </button>
+                </div>
+              </div>
             </div>
           </motion.div>
 
           {/* Intro description bento card (Right) */}
           <motion.div
-            whileHover={{ y: -4, scale: 1.01 }}
+            whileHover={{ y: -4 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="md:col-span-8 bg-[#121214] border border-[#1e1e22] rounded-[2rem] p-8 flex flex-col justify-between relative overflow-hidden group"
+            className="md:col-span-6 bg-[#121214] border border-[#1e1e22] rounded-[2rem] p-8 flex flex-col justify-between relative overflow-hidden group"
           >
             <div>
               <div className="flex justify-between items-center mb-6">
@@ -439,7 +578,7 @@ export default function App() {
                 <div className="relative group/edu">
                   <div className="absolute -left-[27px] top-1 w-3 h-3 rounded-full bg-stone-500 border-2 border-[#121214]" />
                   <span className="text-[10px] font-mono text-stone-400 font-bold block">
-                    GRADUATED 2023
+                    GRADUATED 2024
                   </span>
                   <h4 className="text-base font-bold font-display text-white mt-1">
                     WAEC O’Level Certification
@@ -482,7 +621,7 @@ export default function App() {
             {PROJECTS.map((proj) => (
               <motion.div
                 key={proj.id}
-                whileHover={{ y: -4, scale: 1.01 }}
+                whileHover={{ y: -4 }}
                 onClick={() => setSelectedProject(proj)}
                 className="bg-[#19191c] border border-[#222227] rounded-[1.5rem] p-5 cursor-pointer flex flex-col justify-between hover:border-[#1e1e22] group"
               >
@@ -519,6 +658,71 @@ export default function App() {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+
+        {/* REFERENCE FILES SEGMENT */}
+        <div id="bento-files-row" className="bg-[#121214] border border-[#1e1e22] rounded-[2rem] p-8">
+          <div className="flex justify-between items-center mb-8 pb-4 border-b border-[#1e1e22]">
+            <div>
+              <span className="font-mono text-[10px] tracking-widest uppercase font-bold text-[#39FF14]">
+                Shared Knowledge Base
+              </span>
+              <h2 className="text-2xl font-bold font-display text-white mt-1">
+                Reference Files & Docs
+              </h2>
+            </div>
+            <span className="font-mono text-xs text-stone-500 tracking-wider">
+              {PORTFOLIO_FILES.length} Files Available
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {PORTFOLIO_FILES.map((file) => {
+              const IconComponent = file.icon;
+              return (
+                <motion.div
+                  key={file.id}
+                  whileHover={{ y: -4 }}
+                  className="bg-[#19191c] border border-[#222227] rounded-[1.5rem] p-5 flex flex-col justify-between hover:border-[#1e1e22] group"
+                >
+                  <div>
+                    <div className="flex justify-between items-center mb-4">
+                      <span className="text-[9px] font-mono uppercase bg-[#1c1c1f] text-stone-400 py-1 px-2.5 rounded-full border border-[#25252a] font-bold">
+                        {file.category}
+                      </span>
+                      <IconComponent className="w-5 h-5 text-stone-500 group-hover:text-[#39FF14] transition-colors" />
+                    </div>
+                    <h3 className="text-base font-bold font-display text-white group-hover:text-[#39FF14] transition-colors">
+                      {file.title}
+                    </h3>
+                    <p className="text-[10px] text-stone-500 font-mono mt-0.5">
+                      {file.subtitle}
+                    </p>
+                    <p className="text-xs text-stone-400 mt-2.5 leading-relaxed font-sans">
+                      {file.description}
+                    </p>
+                  </div>
+                  
+                  <div className="pt-4 mt-6 border-t border-[#222227] flex gap-2">
+                    <button
+                      onClick={() => setSelectedFile(file)}
+                      className="flex-1 inline-flex items-center justify-center gap-1.5 h-9 bg-[#1c1c1f] hover:bg-[#25252a] text-stone-300 hover:text-white border border-[#2b2b31] rounded-lg text-xs font-semibold transition-all cursor-pointer"
+                    >
+                      <Eye className="w-3.5 h-3.5" />
+                      View Preview
+                    </button>
+                    <button
+                      onClick={() => downloadFile(file)}
+                      className="inline-flex items-center justify-center w-9 h-9 bg-stone-800 hover:bg-[#39FF14] text-stone-300 hover:text-black rounded-lg transition-all cursor-pointer"
+                      title="Download File"
+                    >
+                      <Download className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
 
@@ -656,6 +860,61 @@ export default function App() {
                   className="inline-flex items-center justify-center h-12 px-6 bg-[#1a1a1d] text-stone-300 hover:text-white border border-[#25252a] font-semibold text-sm rounded-xl cursor-pointer"
                 >
                   Close Specification
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* DOCUMENT PREVIEW MODAL */}
+      <AnimatePresence>
+        {selectedFile && (
+          <div className="fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-4 backdrop-blur-md">
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ type: "spring", duration: 0.4 }}
+              className="bg-[#121214] border border-[#232329] rounded-[2rem] max-w-2xl w-full p-6 sm:p-8 relative overflow-hidden"
+            >
+              <button
+                onClick={() => setSelectedFile(null)}
+                className="absolute top-4 right-4 w-9 h-9 flex items-center justify-center rounded-full bg-[#1c1c1f] text-stone-400 hover:text-white border border-[#2b2b31] transition-all cursor-pointer"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              <div className="mb-4">
+                <span className="text-[10px] font-mono uppercase bg-[#1c1c1f] text-[#39FF14] py-1 px-3 rounded-full border border-[#25252a] font-bold">
+                  {selectedFile.category} • PREVIEW
+                </span>
+                <h3 className="text-2xl font-bold font-display text-white mt-3">
+                  {selectedFile.title}
+                </h3>
+                <p className="text-xs text-stone-400 mt-1 font-sans">
+                  File: <span className="font-mono text-stone-300">{selectedFile.filename}</span>
+                </p>
+              </div>
+
+              {/* Text content viewer box */}
+              <div className="bg-[#0b0b0c] border border-[#1e1e22] rounded-xl p-4 sm:p-5 max-h-[350px] overflow-y-auto font-mono text-xs text-stone-300 leading-relaxed whitespace-pre-wrap mb-6 scrollbar-thin">
+                {selectedFile.content}
+              </div>
+
+              <div className="flex flex-wrap gap-4">
+                <button
+                  onClick={() => downloadFile(selectedFile)}
+                  className="flex-1 inline-flex items-center justify-center gap-2 h-12 bg-[#39FF14] text-black font-extrabold text-sm rounded-xl cursor-pointer hover:bg-[#34e012] transition-colors"
+                >
+                  <Download className="w-4 h-4" />
+                  Download File
+                </button>
+                <button
+                  onClick={() => setSelectedFile(null)}
+                  className="inline-flex items-center justify-center h-12 px-6 bg-[#1a1a1d] text-stone-300 hover:text-white border border-[#25252a] font-semibold text-sm rounded-xl cursor-pointer"
+                >
+                  Close Preview
                 </button>
               </div>
             </motion.div>
