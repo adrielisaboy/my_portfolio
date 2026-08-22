@@ -85,21 +85,27 @@ export default function Contact() {
           onMouseLeave={onCtaLeave}
           onFocus={onCtaEnter}
           onBlur={onCtaLeave}
-          className="group mt-8 block max-w-[1200px]"
+          className="group mt-8 block"
         >
           <h2
             data-contact="head"
-            className="flex items-start gap-4 font-display text-[12vw] font-bold leading-[0.95] tracking-tightest text-paper sm:text-[9vw] lg:text-[8vw]"
+            className="grid grid-cols-12 items-start font-display text-[12vw] font-bold leading-[0.9] tracking-tightest text-paper sm:text-[9vw] lg:text-[8vw]"
           >
-            <span>Let&apos;s build</span>
-            <span className="text-accent">something.</span>
-            <span
-              ref={arrow}
-              className="mt-2 inline-flex shrink-0 text-accent"
-              style={{ willChange: 'transform' }}
-              aria-hidden="true"
-            >
-              <ArrowUpRight size={48} strokeWidth={2.5} />
+            <span className="col-span-5 block">
+              Let&apos;s
+              <br />
+              build
+            </span>
+            <span className="relative col-span-7 block text-accent">
+              something.
+              <span
+                ref={arrow}
+                className="absolute right-0 top-0 inline-flex text-accent"
+                style={{ willChange: 'transform' }}
+                aria-hidden="true"
+              >
+                <ArrowUpRight size={48} strokeWidth={2.5} />
+              </span>
             </span>
           </h2>
         </a>
