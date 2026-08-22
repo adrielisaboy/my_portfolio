@@ -128,23 +128,28 @@ export default function Projects() {
                 className="relative grid h-full w-screen flex-shrink-0 grid-cols-12 items-center gap-8 px-12"
               >
               {/* Pinned visual */}
-              <div className="relative col-span-6 aspect-[4/3] overflow-hidden border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.01]">
-                <div className="absolute inset-0 flex flex-col justify-between p-8">
-                  <div className="flex items-start justify-between">
-                    <span className="font-mono text-[0.65rem] uppercase tracking-wider text-gray-soft">
-                      {p.tag} — visual
-                    </span>
-                    <span className="font-display text-6xl font-bold tracking-tightest text-white/5">
-                      {p.index}
-                    </span>
+              <div className="relative col-span-6 aspect-[4/3] overflow-hidden border border-white/10">
+                {p.image ? (
+                  <img
+                    src={p.image}
+                    alt={`${p.name} screenshot`}
+                    className="h-full w-full object-cover object-top"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex flex-col justify-between bg-gradient-to-br from-white/[0.06] to-white/[0.01] p-8">
+                    <div className="flex items-start justify-between">
+                      <span className="font-mono text-[0.65rem] uppercase tracking-wider text-gray-soft">
+                        {p.tag} — visual
+                      </span>
+                      <span className="font-display text-6xl font-bold tracking-tightest text-white/5">
+                        {p.index}
+                      </span>
+                    </div>
+                    <div className="font-display text-4xl font-semibold tracking-tightest text-paper/80">
+                      {p.name}
+                    </div>
                   </div>
-                  <div className="font-display text-4xl font-semibold tracking-tightest text-paper/80">
-                    {p.name}
-                  </div>
-                  <div className="font-mono text-[0.6rem] uppercase tracking-wider text-accent/60">
-                    // replace with project screenshot
-                  </div>
-                </div>
+                )}
               </div>
 
               {/* Changing info */}

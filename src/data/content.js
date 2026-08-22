@@ -1,4 +1,8 @@
 import portrait from '../portait.png';
+import imgCraywave from '../assets/images/craywave.png';
+import imgAdrielDev from '../assets/images/adriel-dev.png';
+import imgAtmos from '../assets/images/atmos.png';
+import imgVonketa from '../assets/images/vonketa.png';
 
 export const PERSON = {
   brand: 'adriel.dev',
@@ -61,6 +65,7 @@ export const PROJECTS = [
     github: 'https://github.com/adrielisaboy/CrayWave',
     demo: 'https://cray-wave.vercel.app',
     tag: 'Web App',
+    image: imgCraywave,
   },
   {
     index: '02',
@@ -71,6 +76,7 @@ export const PROJECTS = [
     github: 'https://github.com/adrielisaboy/my_portfolio',
     demo: 'https://jeffreyadrielo.vercel.app',
     tag: 'Portfolio',
+    image: imgAdrielDev,
   },
   {
     index: '03',
@@ -81,6 +87,7 @@ export const PROJECTS = [
     github: 'https://github.com/adrielisaboy/atmos-weather',
     demo: 'https://atmosbyadriel.vercel.app',
     tag: 'Web App',
+    image: imgAtmos,
   },
   {
     index: '04',
@@ -91,6 +98,7 @@ export const PROJECTS = [
     github: 'https://github.com/adrielisaboy/vonketa-interiors',
     demo: 'https://vonketainteriors.vercel.app',
     tag: 'Business Website',
+    image: imgVonketa,
   },
 ];
 
