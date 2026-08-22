@@ -3,12 +3,12 @@ import portrait from '../portait.png';
 export const PERSON = {
   brand: 'adriel.dev',
   role: 'Frontend Developer • Creative Builder',
-  email: 'hello@adriel.dev',
+  email: 'jeffadr46@gmail.com',
   modelingPortfolio: 'MODELING_PORTFOLIO_URL',
   portrait,
   socials: {
-    github: 'GITHUB_URL',
-    linkedin: 'LINKEDIN_URL',
+    github: 'https://github.com/adrielisaboy',
+    linkedin: 'https://www.linkedin.com/in/jeffrey-oleabhie-b1529a405',
   },
 };
 
