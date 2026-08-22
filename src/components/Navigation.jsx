@@ -32,7 +32,12 @@ export default function Navigation() {
       onScroll();
       window.addEventListener('scroll', onScroll, { passive: true });
 
-      // Track which section is in view
+      // Track which section is in view.
+      // Use onEnter/onEnterBack so the active id is set when a section
+      // crosses the 45% mark in either scroll direction. onLeave/onLeaveBack
+      // are intentionally omitted — the next section's onEnter takes over,
+      // which prevents the indicator jumping away mid-section (e.g. during
+      // a pinned Projects showcase that consumes a lot of scroll distance).
       NAV_ITEMS.forEach((item) => {
         const el = document.getElementById(item.id);
         if (!el) return;
@@ -40,7 +45,8 @@ export default function Navigation() {
           trigger: el,
           start: 'top 45%',
           end: 'bottom 45%',
-          onToggle: (self) => self.isActive && setActive(item.id),
+          onEnter: () => setActive(item.id),
+          onEnterBack: () => setActive(item.id),
         });
       });
 
