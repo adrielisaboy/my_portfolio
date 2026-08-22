@@ -55,10 +55,11 @@ export default function Navigation() {
       if (!indicator.current) return;
       const target = nav.current?.querySelector(`[data-nav="${active}"]`);
       if (!target) return;
-      const navRect = nav.current.getBoundingClientRect();
+      // Measure relative to the indicator's own parent <ul>, not the header
+      const ulRect = indicator.current.parentElement.getBoundingClientRect();
       const r = target.getBoundingClientRect();
       gsap.to(indicator.current, {
-        x: r.left - navRect.left,
+        x: r.left - ulRect.left,
         width: r.width,
         duration: reduced ? 0 : 0.4,
         ease: EASE.out,
