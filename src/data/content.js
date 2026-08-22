@@ -121,14 +121,14 @@ export const EXPERIENCE = [
     role: 'A deliberate break',
     company: 'Reset & recalibrate',
     description:
-      'Took a big break from active building, creating space to reset, reflect, and return with a clearer direction for the work ahead.',
+      'Took a big break from active building, creating space to reset, reflect, and return with a clearer direction for the work ahead. Used the time to learn React, TypeScript, and Tailwind CSS — building a stronger foundation for modern frontend development.',
   },
   {
     period: '2026 — Present',
     role: 'Building the career',
     company: 'Codveda Technologies • HSL • VONKETA',
     description:
-      'Back in action through personal projects, a Codveda internship, and collaborative work with teams at HSL and VONKETA. Building momentum, learning in public, and growing a career in frontend development.',
+      'Back in action through personal projects, a Codveda internship, and collaborative work with teams at HSL and VONKETA. Building momentum, learning in public, and growing a career in frontend development. Presently learning Next.js, Java, Flutter, and cybersecurity fundamentals.',
   },
 ];
 
