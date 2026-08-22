@@ -61,9 +61,9 @@ export default function Contact() {
   };
 
   const links = [
-    { label: 'Email', value: PERSON.email, href: `mailto:${PERSON.email}`, icon: Mail },
-    { label: 'GitHub', value: PERSON.socials.github, href: PERSON.socials.github, icon: Github },
-    { label: 'LinkedIn', value: PERSON.socials.linkedin, href: PERSON.socials.linkedin, icon: Linkedin },
+    { label: 'Email', href: `mailto:${PERSON.email}`, icon: Mail },
+    { label: 'GitHub', href: PERSON.socials.github, icon: Github },
+    { label: 'LinkedIn', href: PERSON.socials.linkedin, icon: Linkedin },
   ];
 
   return (
