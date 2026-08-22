@@ -91,9 +91,13 @@ export default function About() {
             </span>
           </h2>
 
-          <div className="mt-10 max-w-xl space-y-5 text-base leading-relaxed text-gray-soft md:text-lg">
+          <h3 data-about="copy" className="mt-10 font-display text-2xl font-semibold tracking-tightest text-paper sm:text-3xl">
+            Hello, my name is Adriel.
+          </h3>
+
+          <div className="mt-6 max-w-xl space-y-5 text-base leading-relaxed text-gray-soft md:text-lg">
             <p data-about="copy">
-              I&apos;m a frontend developer focused on building useful, polished digital
+              My name is Jeffrey Adriel Oleabhie, a frontend developer focused on building useful, polished digital
               experiences. I work primarily with <span className="text-paper">HTML</span>,{' '}
               <span className="text-paper">CSS</span>, and{' '}
               <span className="text-paper">JavaScript</span>, and build interfaces with{' '}
