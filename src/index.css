@@ -183,6 +183,21 @@ html[data-theme='light'] .divide-white\/10 > :not([hidden]) ~ :not([hidden]) {
   border-color: rgba(10, 10, 11, 0.16) !important;
 }
 
+/* Replace translucent white utility colors that disappear on the paper background. */
+html[data-theme='light'] [class*='text-white/'] {
+  color: rgba(10, 10, 11, 0.42) !important;
+}
+
+html[data-theme='light'] [class*='bg-white/'] {
+  background-color: rgba(10, 10, 11, 0.04) !important;
+}
+
+html[data-theme='light'] [class*='from-white/'],
+html[data-theme='light'] [class*='to-white/'] {
+  --tw-gradient-from: rgba(10, 10, 11, 0.06) var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgba(10, 10, 11, 0) var(--tw-gradient-to-position) !important;
+}
+
 html[data-theme='light'] ::-webkit-scrollbar-track {
   background: #f4f4f2;
 }
