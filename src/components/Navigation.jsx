@@ -25,31 +25,38 @@ export default function Navigation() {
     localStorage.setItem('theme', lightMode ? 'light' : 'dark');
   }, { dependencies: [lightMode], scope: nav });
 
-  // Scroll-aware styling + active section tracking via ScrollTrigger
+  // Scroll-aware styling + active section tracking via scroll listener.
+  // We deliberately avoid ScrollTrigger here because GSAP pinning inserts
+  // spacer elements that make trigger-based end positions unreliable — the
+  // pinned Projects section occupies far more scroll distance than its DOM
+  // height. A plain scroll listener reading getBoundingClientRect() sees the
+  // real rendered position at every frame and is immune to that problem.
   useGSAP(
     () => {
-      const onScroll = () => setScrolled(window.scrollY > 40);
+      const threshold = window.innerHeight * 0.45;
+
+      const onScroll = () => {
+        setScrolled(window.scrollY > 40);
+
+        // Walk sections in reverse so the last one that has crossed the
+        // threshold wins (handles overlapping sections gracefully).
+        let found = null;
+        for (let i = NAV_ITEMS.length - 1; i >= 0; i--) {
+          const item = NAV_ITEMS[i];
+          const el = document.getElementById(item.id);
+          if (!el) continue;
+          const rect = el.getBoundingClientRect();
+          // Section top has scrolled past the threshold line
+          if (rect.top <= threshold) {
+            found = item.id;
+            break;
+          }
+        }
+        if (found) setActive(found);
+      };
+
       onScroll();
       window.addEventListener('scroll', onScroll, { passive: true });
-
-      // Track which section is in view.
-      // Use onEnter/onEnterBack so the active id is set when a section
-      // crosses the 45% mark in either scroll direction. onLeave/onLeaveBack
-      // are intentionally omitted — the next section's onEnter takes over,
-      // which prevents the indicator jumping away mid-section (e.g. during
-      // a pinned Projects showcase that consumes a lot of scroll distance).
-      NAV_ITEMS.forEach((item) => {
-        const el = document.getElementById(item.id);
-        if (!el) return;
-        ScrollTrigger.create({
-          trigger: el,
-          start: 'top 45%',
-          end: 'bottom 45%',
-          onEnter: () => setActive(item.id),
-          onEnterBack: () => setActive(item.id),
-        });
-      });
-
       return () => window.removeEventListener('scroll', onScroll);
     },
     { scope: nav },
