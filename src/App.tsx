@@ -7,7 +7,6 @@ import About from './sections/About.jsx';
 import Skills from './sections/Skills.jsx';
 import Projects from './sections/Projects.jsx';
 import Experience from './sections/Experience.jsx';
-import Creative from './sections/Creative.jsx';
 import Certificates from './sections/Certificates.jsx';
 import Files from './sections/Files.jsx';
 import Contact from './sections/Contact.jsx';
@@ -28,7 +27,6 @@ export default function App() {
         <Skills />
         <Projects />
         <Experience />
-        <Creative />
         <Certificates />
         <Files />
         <Contact />
