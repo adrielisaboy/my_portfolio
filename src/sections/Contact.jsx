@@ -61,9 +61,9 @@ export default function Contact() {
   };
 
   const links = [
-    { label: 'Email', value: PERSON.email, href: `mailto:${PERSON.email}`, icon: Mail },
-    { label: 'GitHub', value: PERSON.socials.github, href: PERSON.socials.github, icon: Github },
-    { label: 'LinkedIn', value: PERSON.socials.linkedin, href: PERSON.socials.linkedin, icon: Linkedin },
+    { label: 'Email', value: PERSON.email, href: `mailto:${jeffadr46@gmail.com}`, icon: Mail },
+    { label: 'GitHub', value: PERSON.socials.github, href: 'https://github.com/adrielisaboy/my_portfolio', icon: Github },
+    { label: 'LinkedIn', value: PERSON.socials.linkedin, href: "https://www.linkedin.com/in/jeffrey-oleabhie-b1529a405", icon: Linkedin },
   ];
 
   return (
@@ -85,27 +85,21 @@ export default function Contact() {
           onMouseLeave={onCtaLeave}
           onFocus={onCtaEnter}
           onBlur={onCtaLeave}
-          className="group mt-8 block"
+          className="group mt-8 block max-w-[1200px]"
         >
           <h2
             data-contact="head"
-            className="grid grid-cols-12 items-start font-display text-[12vw] font-bold leading-[0.9] tracking-tightest text-paper sm:text-[9vw] lg:text-[8vw]"
+            className="flex items-start gap-4 font-display text-[12vw] font-bold leading-[0.95] tracking-tightest text-paper sm:text-[9vw] lg:text-[8vw]"
           >
-            <span className="col-span-5 block">
-              Let&apos;s
-              <br />
-              build
-            </span>
-            <span className="relative col-span-7 block text-accent">
-              something.
-              <span
-                ref={arrow}
-                className="absolute right-0 top-0 inline-flex text-accent"
-                style={{ willChange: 'transform' }}
-                aria-hidden="true"
-              >
-                <ArrowUpRight size={48} strokeWidth={2.5} />
-              </span>
+            <span>Let&apos;s build</span>
+            <span className="text-accent">something.</span>
+            <span
+              ref={arrow}
+              className="mt-2 inline-flex shrink-0 text-accent"
+              style={{ willChange: 'transform' }}
+              aria-hidden="true"
+            >
+              <ArrowUpRight size={48} strokeWidth={2.5} />
             </span>
           </h2>
         </a>
