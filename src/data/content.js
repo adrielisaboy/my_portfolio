@@ -100,6 +100,16 @@ export const PROJECTS = [
     tag: 'Business Website',
     image: imgVonketa,
   },
+  {
+    index: '05',
+    name: 'Sklit',
+    description:
+      'A modern social publishing platform inspired by Substack, designed for writers and creators to publish posts, build an audience, and engage with a community around their ideas and content.',
+    tech: ['React', 'TypeScript/JavaScript', 'Vite', 'CSS', 'REST APIs'],
+    github: 'https://github.com/adrielisaboy/sklit',
+    demo: 'https://sklit.vercel.app',
+    tag: 'Social Platform / Web App',
+  },
 ];
 
 export const EXPERIENCE = [
