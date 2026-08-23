@@ -3,6 +3,10 @@ import imgCraywave from '../assets/images/craywave.png';
 import imgAdrielDev from '../assets/images/adriel-dev.png';
 import imgAtmos from '../assets/images/atmos.png';
 import imgVonketa from '../assets/images/vonketa.png';
+import imgSklit from '../assets/images/sklit.png';
+import cert1 from '../assets/images/cert1.jpg';
+import cert2 from '../assets/images/cert2.jpg';
+import cert3 from '../assets/images/cert3.jpg';
 
 export const PERSON = {
   brand: 'adriel.dev',
@@ -109,6 +113,7 @@ export const PROJECTS = [
     github: 'https://github.com/adrielisaboy/sklit',
     demo: 'https://sklit.vercel.app',
     tag: 'Social Platform / Web App',
+    image: imgSklit,
   },
 ];
 
@@ -156,7 +161,7 @@ export const CERTIFICATES = [
     issuer: 'Issuing organization',
     year: '2026',
     href: '/files/certificate.pdf',
-    image: 'https://images.pexels.com/photos/5905445/pexels-photo-5905445.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    image: cert1,
     description: 'A record of a completed course, milestone, or achievement. Replace this text with the story behind the certificate.',
   },
   {
@@ -164,8 +169,16 @@ export const CERTIFICATES = [
     issuer: 'Organization or community',
     year: '2026',
     href: '/files/accolade.pdf',
-    image: 'https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    image: cert2,
     description: 'Recognition for the work, consistency, and contribution behind the projects I build.',
+  },
+  {
+    title: 'Third certificate',
+    issuer: 'Certification body',
+    year: '2026',
+    href: '/files/certificate3.pdf',
+    image: cert3,
+    description: 'An additional achievement demonstrating expertise and dedication to continuous learning.',
   },
 ];
 
