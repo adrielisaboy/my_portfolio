@@ -126,7 +126,7 @@ export const EXPERIENCE = [
       'Learnt the foundations of the web by building pages with HTML and CSS, discovering how structure, layout, and visual detail work together.',
   },
   {
-    period: '2023',
+    period: '2022-2023',
     role: 'Rebuilt the fundamentals',
     company: 'HTML • CSS • JavaScript',
     description:
@@ -157,10 +157,10 @@ export const EXPERIENCE = [
 
 export const CERTIFICATES = [
   {
-    title: 'Introduction to JavaScript',
+    title: 'Front End Development – HTML',
     issuer: 'Great Learning Academy',
     year: '2022',
-    href: '/files/certificate.pdf',
+    href: '/src/assets/cert1.jpg',
     image: cert1,
     description: 'Certificate confirming successful completion of a course covering HTML fundamentals and the structure and building blocks of web pages.',
   },
@@ -168,15 +168,15 @@ export const CERTIFICATES = [
     title: 'Front End Development – CSS',
     issuer: 'Great Learning Academy',
     year: '2022',
-    href: '/files/accolade.pdf',
+    href: '/src/assets/cert2.jpg',
     image: cert2,
     description: 'Certificate confirming successful completion of a course focused on CSS fundamentals and styling techniques used to design and structure modern web pages.',
   },
   {
-    title: 'Front End Development – HTML',
+    title: 'Introduction to JavaScript',
     issuer: 'Great Learning Academy',
     year: '2022',
-    href: '/files/certificate3.pdf',
+    href: '/src/assets/cert3.jpg',
     image: cert3,
     description: 'Certificate confirming successful completion of a free online course covering the fundamentals of JavaScript and its core concepts for web development.',
   },
