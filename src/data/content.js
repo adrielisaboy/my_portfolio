@@ -162,7 +162,7 @@ export const CERTIFICATES = [
     year: '2022',
     href: '/files/certificate.pdf',
     image: cert1,
-    description: 'Certificate confirming successful completion of a free online course covering the fundamentals of JavaScript and its core concepts for web development.',
+    description: 'Certificate confirming successful completion of a course covering HTML fundamentals and the structure and building blocks of web pages.',
   },
   {
     title: 'Front End Development – CSS',
@@ -178,7 +178,7 @@ export const CERTIFICATES = [
     year: '2022',
     href: '/files/certificate3.pdf',
     image: cert3,
-    description: 'Certificate confirming successful completion of a course covering HTML fundamentals and the structure and building blocks of web pages.',
+    description: 'Certificate confirming successful completion of a free online course covering the fundamentals of JavaScript and its core concepts for web development.',
   },
 ];
 
