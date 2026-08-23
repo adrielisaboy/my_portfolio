@@ -157,28 +157,28 @@ export const EXPERIENCE = [
 
 export const CERTIFICATES = [
   {
-    title: 'Certificate title',
-    issuer: 'Issuing organization',
-    year: '2026',
+    title: 'Introduction to JavaScript',
+    issuer: 'Great Learning Academy',
+    year: '2022',
     href: '/files/certificate.pdf',
     image: cert1,
-    description: 'A record of a completed course, milestone, or achievement. Replace this text with the story behind the certificate.',
+    description: 'Certificate confirming successful completion of a free online course covering the fundamentals of JavaScript and its core concepts for web development.',
   },
   {
-    title: 'Accolade or recognition',
-    issuer: 'Organization or community',
-    year: '2026',
+    title: 'Front End Development – CSS',
+    issuer: 'Great Learning Academy',
+    year: '2022',
     href: '/files/accolade.pdf',
     image: cert2,
-    description: 'Recognition for the work, consistency, and contribution behind the projects I build.',
+    description: 'Certificate confirming successful completion of a course focused on CSS fundamentals and styling techniques used to design and structure modern web pages.',
   },
   {
-    title: 'Third certificate',
-    issuer: 'Certification body',
-    year: '2026',
+    title: 'Front End Development – HTML',
+    issuer: 'Great Learning Academy',
+    year: '2022',
     href: '/files/certificate3.pdf',
     image: cert3,
-    description: 'An additional achievement demonstrating expertise and dedication to continuous learning.',
+    description: 'Certificate confirming successful completion of a course covering HTML fundamentals and the structure and building blocks of web pages.',
   },
 ];
 
