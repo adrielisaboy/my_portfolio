@@ -1,6 +1,6 @@
 # ADRiEL.DEV — Advanced Animations Portfolio
 
-A premium, editorial-style personal portfolio built for the **Codveda Technologies Front-End Development Internship — Level 3, Task 3 (Advanced Animations)**.
+A premium, editorial-style personal portfolio built for the **Codveda Technologies Front-End Development Internship — Level 3, Task 3 (Advanced Animations)**, which I now use as my official Portfolio Website
 
 The project demonstrates advanced, production-quality animation work using **GSAP** and **GSAP ScrollTrigger** — genuinely implemented in the React source, not faked with CSS.
 
