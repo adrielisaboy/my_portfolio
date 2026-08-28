@@ -2,8 +2,8 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import { ArrowUpRight } from 'lucide-react';
-import { PERSON } from '../data/content.js';
+import { ArrowUpRight, Award } from 'lucide-react';
+import { PERSON, CERTIFICATES } from '../data/content.js';
 import { prefersReducedMotion, EASE } from '../animations/gsap.js';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -87,6 +87,30 @@ export default function Creative() {
         stagger: 0.1,
         scrollTrigger: { trigger: '[data-creative="caption"]', start: 'top 85%' },
       });
+
+      // Certificates list reveal
+      gsap.utils.toArray('[data-cert="row"]').forEach((row) => {
+        gsap.from(row, {
+          opacity: 0,
+          y: 60,
+          duration: 0.9,
+          ease: EASE.out,
+          scrollTrigger: { trigger: row, start: 'top 85%', toggleActions: 'play none none reverse' },
+        });
+      });
+
+      // Index number horizontal drift on scroll
+      gsap.utils.toArray('[data-cert-index]').forEach((el) => {
+        gsap.fromTo(
+          el,
+          { x: 40 },
+          {
+            x: 0,
+            ease: 'none',
+            scrollTrigger: { trigger: el, start: 'top 90%', end: 'top 40%', scrub: true },
+          },
+        );
+      });
     },
     { scope: root },
   );
@@ -158,6 +182,55 @@ export default function Creative() {
           <p data-creative="caption" className="font-mono text-[0.65rem] uppercase tracking-wider text-accent/70">
             // images above are placeholders — replace with your own
           </p>
+        </div>
+
+        {/* Certificates List */}
+        <div className="mt-24">
+          <div className="mb-10 eyebrow">Certificates</div>
+          <div className="divide-y divide-white/10 border-y border-white/10">
+            {CERTIFICATES.map((cert, index) => (
+              <div
+                key={`${cert.title}-${index}`}
+                data-cert="row"
+                className="group grid grid-cols-12 items-center gap-4 py-6 transition-colors duration-300 hover:bg-white/[0.02] md:py-8"
+              >
+                <div
+                  data-cert-index
+                  className="col-span-2 font-mono text-sm text-accent/70 md:col-span-1"
+                >
+                  {String(index + 1).padStart(2, '0')}
+                </div>
+                <div className="col-span-7 md:col-span-4">
+                  <h3 className="font-display text-xl font-semibold tracking-tightest text-paper transition-colors duration-300 group-hover:text-accent md:text-2xl">
+                    {cert.title}
+                  </h3>
+                </div>
+                <div className="col-span-12 hidden text-sm text-gray-soft md:col-span-4 md:block">
+                  {cert.issuer} — {cert.year}
+                </div>
+                <div className="col-span-3 flex justify-end gap-3 md:col-span-3">
+                  <a
+                    href={cert.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`View ${cert.title}`}
+                    className="text-gray-soft transition-colors duration-300 hover:text-paper"
+                  >
+                    <Award size={18} />
+                  </a>
+                  <a
+                    href={cert.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Open ${cert.title}`}
+                    className="text-gray-soft transition-colors duration-300 hover:text-accent"
+                  >
+                    <ArrowUpRight size={18} />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
