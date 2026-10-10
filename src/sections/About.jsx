@@ -139,6 +139,11 @@ export default function About() {
             >
               <img
                 src={PERSON.portrait}
+                srcSet={PERSON.portraitSrcSet}
+                sizes="(min-width: 768px) 40vw, 100vw"
+                width={1024}
+                height={1536}
+                decoding="async"
                 alt="Portrait"
                 className="h-full w-full object-contain object-bottom grayscale"
               />
