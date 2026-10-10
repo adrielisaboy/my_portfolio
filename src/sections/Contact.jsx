@@ -89,17 +89,19 @@ export default function Contact() {
         >
           <h2
             data-contact="head"
-            className="flex items-start gap-4 font-display text-[12vw] font-bold leading-[0.95] tracking-tightest text-paper sm:text-[9vw] lg:text-[8vw]"
+            className="font-display text-[12vw] font-bold leading-[0.95] tracking-tightest text-paper sm:text-[9vw] lg:text-[8vw]"
           >
-            <span>Let&apos;s build</span>
-            <span className="text-accent">something.</span>
-            <span
-              ref={arrow}
-              className="mt-2 inline-flex shrink-0 text-accent"
-              style={{ willChange: 'transform' }}
-              aria-hidden="true"
-            >
-              <ArrowUpRight size={48} strokeWidth={2.5} />
+            <span className="block whitespace-nowrap">Let&apos;s build</span>
+            <span className="flex items-start gap-4">
+              <span className="text-accent">something.</span>
+              <span
+                ref={arrow}
+                className="mt-2 inline-flex shrink-0 text-accent"
+                style={{ willChange: 'transform' }}
+                aria-hidden="true"
+              >
+                <ArrowUpRight size={48} strokeWidth={2.5} />
+              </span>
             </span>
           </h2>
         </a>
