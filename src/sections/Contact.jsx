@@ -1,8 +1,8 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import { ArrowUpRight, Mail, Github, Linkedin } from 'lucide-react';
+import { ArrowUpRight, Mail, Github, Linkedin, Copy, Check } from 'lucide-react';
 import { PERSON } from '../data/content.js';
 import { prefersReducedMotion, EASE } from '../animations/gsap.js';
 
@@ -12,6 +12,30 @@ export default function Contact() {
   const root = useRef(null);
   const arrow = useRef(null);
   const cta = useRef(null);
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    if (!copied) return undefined;
+    const t = setTimeout(() => setCopied(false), 2000);
+    return () => clearTimeout(t);
+  }, [copied]);
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(PERSON.email);
+    } catch {
+      const input = document.createElement('textarea');
+      input.value = PERSON.email;
+      input.setAttribute('readonly', '');
+      input.style.position = 'fixed';
+      input.style.opacity = '0';
+      document.body.appendChild(input);
+      input.select();
+      document.execCommand('copy');
+      input.remove();
+    }
+    setCopied(true);
+  };
 
   useGSAP(
     () => {
@@ -105,6 +129,18 @@ export default function Contact() {
             </span>
           </h2>
         </a>
+
+        <div data-contact="head" className="mt-8 flex flex-wrap items-center gap-4">
+          <span className="font-mono text-sm tracking-wide text-gray-soft">{PERSON.email}</span>
+          <button
+            type="button"
+            onClick={copyEmail}
+            className="inline-flex items-center gap-2 border border-white/15 px-4 py-2 font-mono text-[0.65rem] uppercase tracking-wider text-paper transition-colors duration-300 hover:border-accent hover:text-accent focus-visible:border-accent focus-visible:text-accent"
+          >
+            {copied ? <Check size={14} aria-hidden="true" /> : <Copy size={14} aria-hidden="true" />}
+            <span aria-live="polite">{copied ? 'Copied' : 'Copy email'}</span>
+          </button>
+        </div>
 
         <div
           data-contact="links"
