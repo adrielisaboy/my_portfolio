@@ -1,4 +1,5 @@
-import portrait from '../portait.png';
+import portrait from '../assets/images/portrait.webp';
+import portrait640 from '../assets/images/portrait-640.webp';
 import imgCraywave from '../assets/images/craywave.png';
 import imgAdrielDev from '../assets/images/adriel-dev.png';
 import imgAtmos from '../assets/images/atmos.png';
@@ -14,6 +15,7 @@ export const PERSON = {
   email: 'jeffadr46@gmail.com',
   modelingPortfolio: 'MODELING_PORTFOLIO_URL',
   portrait,
+  portraitSrcSet: `${portrait640} 640w, ${portrait} 1024w`,
   socials: {
     github: 'https://github.com/adrielisaboy',
     linkedin: 'https://www.linkedin.com/in/jeffrey-oleabhie-b1529a405',
