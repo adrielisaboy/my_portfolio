@@ -184,6 +184,7 @@ export const CERTIFICATES = [
 
 export const FILES = [
   { title: 'Curriculum vitae', description: 'A concise overview of my experience and skills.', href: 'src/assets/Jeffrey_Adriel_Oleabhie_CV.pdf' },
+  { title: 'Cover Letter', description: 'An introduction highlighting my professional background, suitability, and interest in an opportunity.', href: 'src/assets/Jeffrey_Adriel_Oleabhie_Cover_Letter.pdf ' },
   { title: 'Portfolio document', description: 'Selected work, capabilities, and project context.', href: 'src/assets/Jeffrey_Adriel_Oleabhie_Portfolio.pdf' },
-  { title: 'Cover Letter', description: 'Selected work, capabilities, and project context.', href: 'src/assets/Jeffrey_Adriel_Oleabhie_Cover_Letter.pdf ' },
+  
 ];
