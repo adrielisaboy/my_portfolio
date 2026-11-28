@@ -4,6 +4,7 @@ import imgAdrielDev from '../assets/images/adriel-dev.webp';
 import imgAtmos from '../assets/images/atmos.webp';
 import imgVonketa from '../assets/images/vonketa.webp';
 import imgSklit from '../assets/images/sklit.webp';
+import imgHSL from '../assets/images/hsl.png';
 import cert1 from '../assets/images/cert1.jpg';
 import cert2 from '../assets/images/cert2.jpg';
 import cert3 from '../assets/images/cert3.jpg';
@@ -114,6 +115,17 @@ export const PROJECTS = [
     demo: 'https://sklit.vercel.app',
     tag: 'Social Platform / Web App',
     image: imgSklit,
+  },
+  {
+    index: '06',
+    name: 'Hebron Startup Lab Landing Page',
+    description:
+      'A responsive landing page for Hebron Startup Lab (HSL), a university-based startup accelerator at Covenant University' ,
+    tech: ['React', 'TypeScript/JavaScript', 'Vite', 'Tailwind CSS', 'REST APIs', 'GSAP'],
+    github: 'https://github.com/adrielisaboy/hebronstartuplab',
+    demo: 'https://hebronstartuplab.vercel.app',
+    tag: ' Responsive Landing Page/ Startup Accelerator Platform',
+    image: imgHSL,
   },
 ];
 
