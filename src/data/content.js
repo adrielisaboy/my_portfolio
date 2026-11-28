@@ -9,6 +9,10 @@ import cert1 from '../assets/images/cert1.jpg';
 import cert2 from '../assets/images/cert2.jpg';
 import cert3 from '../assets/images/cert3.jpg';
 
+import cv from '../assets/Jeffrey_Adriel_Oleabhie_CV.pdf';
+import coverLetter from '../assets/Jeffrey_Adriel_Oleabhie_Cover_Letter.pdf';
+import portfolio from '../assets/Jeffrey_Adriel_Oleabhie_Portfolio.pdf';
+
 export const PERSON = {
   brand: 'adriel.dev',
   role: 'Frontend Developer • Creative Builder',
@@ -195,8 +199,8 @@ export const CERTIFICATES = [
 ];
 
 export const FILES = [
-  { title: 'Curriculum vitae', description: 'A concise overview of my experience and skills.', href: 'src/assets/Jeffrey_Adriel_Oleabhie_CV.pdf' },
-  { title: 'Cover Letter', description: 'An introduction highlighting my professional background, suitability, and interest in an opportunity.', href: 'src/assets/Jeffrey_Adriel_Oleabhie_Cover_Letter.pdf ' },
-  { title: 'Portfolio document', description: 'Selected work, capabilities, and project context.', href: 'src/assets/Jeffrey_Adriel_Oleabhie_Portfolio.pdf' },
+  { title: 'Curriculum vitae', description: 'A concise overview of my experience and skills.', href: cv },
+  { title: 'Cover Letter', description: 'An introduction highlighting my professional background, suitability, and interest in an opportunity.', href: coverLetter },
+  { title: 'Portfolio document', description: 'Selected work, capabilities, and project context.', href: portfolio },
   
 ];
