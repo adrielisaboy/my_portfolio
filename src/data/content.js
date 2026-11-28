@@ -4,7 +4,7 @@ import imgAdrielDev from '../assets/images/adriel-dev.webp';
 import imgAtmos from '../assets/images/atmos.webp';
 import imgVonketa from '../assets/images/vonketa.webp';
 import imgSklit from '../assets/images/sklit.webp';
-import imgHSL from '../assets/images/hsl.png';
+import imgHSL from '../assets/images/hsl.webp';
 import cert1 from '../assets/images/cert1.jpg';
 import cert2 from '../assets/images/cert2.jpg';
 import cert3 from '../assets/images/cert3.jpg';
